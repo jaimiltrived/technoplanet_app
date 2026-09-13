@@ -569,19 +569,29 @@ class _EventCard extends StatelessWidget {
                         AppColors.onSurfaceVariant,
                       ),
                       const Spacer(),
-                      if (event.coordinatorName != null)
-                        Row(
-                          children: [
-                            const Icon(Icons.person_outline_rounded,
-                                size: 13,
-                                color: AppColors.onSurfaceVariant),
-                            const SizedBox(width: 4),
-                            Text(event.coordinatorName!,
-                                style: AppTypography.bodySm.copyWith(
-                                  color: AppColors.onSurfaceVariant,
-                                  fontSize: 12,
-                                )),
-                          ],
+                      if (event.coordinatorName != null &&
+                          event.coordinatorName!.trim().isNotEmpty)
+                        Flexible(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Icon(Icons.person_outline_rounded,
+                                  size: 13,
+                                  color: AppColors.onSurfaceVariant),
+                              const SizedBox(width: 4),
+                              Flexible(
+                                child: Text(
+                                  event.coordinatorName!,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: AppTypography.bodySm.copyWith(
+                                    color: AppColors.onSurfaceVariant,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                     ],
                   ),

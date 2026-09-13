@@ -627,6 +627,28 @@ class _FacultyEventCard extends StatelessWidget {
                     ),
                   ],
                 ),
+                if (event.coordinatorName != null &&
+                    event.coordinatorName!.trim().isNotEmpty) ...[
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      const Icon(Icons.person_outline_rounded,
+                          size: 13, color: AppColors.onSurfaceVariant),
+                      const SizedBox(width: 5),
+                      Expanded(
+                        child: Text(
+                          'Faculty Coordinator: ${event.coordinatorName!}',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppTypography.bodySm.copyWith(
+                            color: AppColors.onSurfaceVariant,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
                 const SizedBox(height: 12),
                 Row(
                   children: [
@@ -664,7 +686,9 @@ class _FacultyEventCard extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 12),
-                Row(
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
                   children: [
                     ElevatedButton.icon(
                       onPressed: () {
@@ -693,7 +717,6 @@ class _FacultyEventCard extends StatelessWidget {
                         textStyle: AppTypography.labelBold.copyWith(fontSize: 12),
                       ),
                     ),
-                    const SizedBox(width: 8),
                     ElevatedButton.icon(
                       onPressed: () {
                         Navigator.push(
@@ -721,7 +744,6 @@ class _FacultyEventCard extends StatelessWidget {
                         textStyle: AppTypography.labelBold.copyWith(fontSize: 12),
                       ),
                     ),
-                    const SizedBox(width: 8),
                     ElevatedButton.icon(
                       onPressed: () {
                         Navigator.push(
@@ -750,21 +772,6 @@ class _FacultyEventCard extends StatelessWidget {
                         textStyle: AppTypography.labelBold.copyWith(fontSize: 12),
                       ),
                     ),
-                    const Spacer(),
-                    if (event.coordinatorName != null)
-                      Row(
-                        children: [
-                          const Icon(Icons.person_outline_rounded,
-                              size: 13,
-                              color: AppColors.onSurfaceVariant),
-                          const SizedBox(width: 4),
-                          Text(event.coordinatorName!,
-                              style: AppTypography.bodySm.copyWith(
-                                color: AppColors.onSurfaceVariant,
-                                fontSize: 12,
-                              )),
-                        ],
-                      ),
                   ],
                 ),
               ],
