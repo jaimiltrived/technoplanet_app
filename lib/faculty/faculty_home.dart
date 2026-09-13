@@ -9,7 +9,7 @@ import 'faculty_event_detail.dart';
 import 'faculty_score_dashboard.dart';
 import 'faculty_rank_declaration.dart';
 import 'faculty_mail_send.dart';
-import 'faculty_add_coordinator.dart';
+
 import 'faculty_payment_history.dart';
 import 'faculty_profile.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
